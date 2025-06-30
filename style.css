@@ -1,0 +1,149 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h5,
+p {
+  color: white;
+  font-weight: normal;
+}
+
+body {
+  background-image: url(./images/background4k.jpg);
+  background-size: 100% 100%;
+  object-fit: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+}
+
+main {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.grid-container {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+
+  grid-template-areas:
+    "main main article sidebar"
+    "box big big sidebar";
+}
+
+@media (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "main main article"
+      "box big big"
+      "sidebar sidebar sidebar";
+  }
+}
+
+@media (max-width: 800px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "main main"
+      "box article"
+      "big big"
+      "sidebar sidebar";
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "box"
+      "article"
+      "big"
+      "sidebar";
+  }
+}
+
+.review-box {
+  position: relative;
+  background: hsla(0, 0%, 0%, 0.2);
+  border-width: 1rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.review-box::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  background: linear-gradient(rgb(54, 54, 54), rgb(68, 68, 68));
+  mask: linear-gradient(black, black) border-box,
+    linear-gradient(black, black) padding-box;
+  mask-composite: subtract;
+}
+
+.review-image-title {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.image-box {
+  height: 3rem;
+  width: 3rem;
+}
+
+.image-box > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name-title > p {
+  color: rgba(180, 180, 180, 0.747);
+  font-size: 13px;
+}
+
+#one {
+  grid-area: main;
+}
+
+#two {
+  grid-area: article;
+}
+
+#three {
+  grid-area: box;
+}
+
+#four {
+  grid-area: big;
+}
+
+#five {
+  grid-area: sidebar;
+}
