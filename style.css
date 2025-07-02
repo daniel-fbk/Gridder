@@ -32,7 +32,7 @@ main {
 }
 
 .grid-container {
-  max-width: 80%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: grid;
@@ -43,6 +43,12 @@ main {
   grid-template-areas:
     "main main article sidebar"
     "box big big sidebar";
+}
+
+@media (min-width: 1700px) {
+  .grid-container {
+    max-width: 80%;
+  }
 }
 
 @media (max-width: 1200px) {
